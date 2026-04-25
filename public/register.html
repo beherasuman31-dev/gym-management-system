@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+  <style>
+     
+ 
+ html, body {
+    height: 100%;
+    margin: 0;
+ }
+ 
+ 
+ 
+ 
+ 
+ body {
+            min-height: 100vh;
+            margin: 0;
+            background-color: rgb(29, 28, 28);
+            color:white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .box {
+            border: 2px solid orange;
+            padding: 20px 30px;
+            margin: 15px;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: 0.3s;
+            font-size: 18px;
+            background: rgba(255, 247, 10, 0.05);
+            backdrop-filter: blur(5px);
+        }
+  .heading{
+    font-size: 5rem;
+    color:white;
+  }
+
+  .heading span{
+     color: #efa018;
+  }
+
+button {
+  padding: 12px 25px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #cad226;
+  color: white;
+}
+
+
+
+        #qrBox, #formBox {
+            display: none;
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: orange;
+            border: none;
+            cursor: pointer;
+        }
+
+  </style>  
+</head>
+<body>   
+
+<h1 class="heading">Select <span>Plan</span></h1>
+
+<div class="box" onclick="selectPlan('Basic',1000)">Basic ₹1000</div>
+<div class="box" onclick="selectPlan('Pro',1500)">Pro ₹1500</div>
+<div class="box" onclick="selectPlan('Premium',2000)">Premium ₹2000</div>
+
+<h2 id="selected"></h2>
+
+<button onclick="proceedPay()">Proceed to Pay</button>
+
+<!-- QR -->
+<div id="qrBox">
+    <h3>Scan & Pay</h3>
+    <img src="./image/QR.jpeg" width="200">
+    <p id="amountText"></p>
+    <button onclick="paymentDone()">I Paid</button>
+</div>
+
+<!-- REGISTER FORM -->
+<div id="formBox">
+    <h3 class="heading">Register</h3>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="registerUser()">Register</button>
+</div>
+
+
+<script src="register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Rudranx Fitness</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    flex: 1;
+    background: linear-gradient(135deg, #000, #1a1a1a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left h2 {
+    font-size: 3rem;
+   color: white;
+   font-weight: 800;
+   cursor: pointer;
+   transition: 0.3s ease-in-out;;
+}
+
+
+
+.left span {
+    color: orange;
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    width: 320px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    background: #1f1f1f;
+    color: white;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: orange;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle {
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    color: orange;
+}
+.left i{
+    font-size: 40px;
+    color: orange;
+}
+
+@media(max-width: 768px){
+    .container {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+         <i class="fas fa-dumbbell"></i><h2>Flexity <span>N</span> Fitness</h2>
+    </div>
+
+    <div class="right">
+        <div class="form-box">
+
+            <!-- LOGIN -->
+            <div id="loginForm">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <div class="toggle" onclick="showRegister()">Create Account</div>
+            </div>
+
+                <!-- REGISTER -->
+                <div id="registerForm" style="display:none;">
+                    <h2>Register</h2>
+
+
+                    <input type="text" id="username" placeholder="userName">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <button onclick="Register()">Register</button>
+                    <div class="toggle" onclick="showLogin()">Already have account?</div>
+                </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+
+
+</body>
+</html>

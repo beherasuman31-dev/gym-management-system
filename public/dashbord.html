@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+    :root {
+    --primary-color: #ef981e;
+    --bg-color: #000000;
+    --white: #000000;
+    --text-dark: #2d3436;
+
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body { background-color: var(--bg-color); color: var(--text-dark); }
+
+.container { display: flex; height: 100vh; }
+
+/* Sidebar */
+.sidebar { width: 250px; background: var(--white); padding: 30px; display: flex; flex-direction: column; border-right: 1px solid #e0e0e0; }
+.logo { font-size: 24px; font-weight: bold; color: var(--primary-color); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
+.sidebar ul { list-style: none; }
+.sidebar ul li { padding: 15px; cursor: pointer; border-radius: 10px; transition: 0.3s; margin-bottom: 5px; color: #636e72; }
+.sidebar ul li:hover, .sidebar ul li.active { background: #f0eeff; color: var(--primary-color); font-weight: 600; }
+.logo h2{
+    font-size: 20px;
+    color: white;
+}
+.logo span{
+    color: orange;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Main Content */
+.main-content { flex: 1; padding: 40px; overflow-y: auto; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+
+
+/* Dynamic Buttons */
+.category-menu { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.btn-choice { padding: 10px 25px; border: none; background: white; border-radius: 25px; cursor: pointer; transition: 0.3s; font-weight: 500; margin-top: 20px; }
+.btn-choice:hover { background: var(--primary-color); color: white; transform: translateY(-3px); }
+
+/* Grid Layout */
+.display-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+.card { background: rgb(28, 26, 26); border-radius: 15px; overflow: hidden;  transition: 0.4s; animation: slideUp 0.5s ease; color: orange; }
+.card:hover { transform: scale(1.03); box-shadow: 0 10px 20px orange }
+.card img { width: 100%; height: 200px; object-fit: contain; }
+.card-info { padding: 15px; text-align: center; color: white; }
+.card-info h3{
+    color: #ef981e;
+}
+/* Animations */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.5s ease; }
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+/* MAIN CONTAINER */
+.daily-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* LEFT */
+
+/* RIGHT */
+.daily-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+/* CIRCLE */
+.circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 60px rgba(255, 200, 0, 0.5),
+              0 20px 40px rgba(0, 0, 0, 0.5);
+
+
+
+  /* 3D Cone Gradient */
+  background: radial-gradient(circle at 30% 30%, 
+              #fff176 0%, 
+              #ffd54f 25%, 
+              #ffb300 55%, 
+              #f57c00 100%);
+
+
+
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+
+  /* ROTATION */
+  animation: spin 12s linear infinite;
+}
+
+/* TEXT */
+.circle span {
+    font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  transform: rotate(-20deg);
+  color: #111;
+}
+
+/* ROTATION */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+.premium-card { margin-top: auto; background: var(--primary-color); color: white; padding: 20px; border-radius: 15px; text-align: center; }
+.premium-card button { margin-top: 10px; padding: 8px 20px; border-radius: 20px; border: none; cursor: pointer; font-weight: bold; }
+
+
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.welcome-banners {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.banner {
+    flex: 1;
+    height: 120px;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+}
+
+.b1 { background: linear-gradient(to right, #2c3e50, #000000); }
+.b2 { background: linear-gradient(to right, orange, #f79e55);color: #000000; font-weight: 900 ; }
+.b1:hover{
+     box-shadow: 0 0 18px var(--primary-color);
+}
+.b2:hover{
+     box-shadow: 0 0 22px #317ac3;;
+}
+
+h2{
+    color: #ddd;
+}
+h3{
+    color: #ddd;
+}
+.stat{
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+
+
+/* =========================
+   TABLETS (<= 1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .sidebar ul li {
+    padding: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banners {
+    flex-direction: column;
+  }
+
+  .daily-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+/* =========================
+   MOBILE (<= 768px)
+========================= */
+@media (max-width: 768px) {
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .logo h2 {
+    font-size: 16px;
+  }
+
+  .sidebar {
+    padding: 10px;
+  }
+
+  .sidebar ul {
+    gap: 5px;
+  }
+
+  .sidebar ul li {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  header h2 {
+    font-size: 20px;
+  }
+
+  .btn-choice {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+
+  .display-grid {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .card-info h3 {
+    font-size: 16px;
+  }
+
+  .daily-container {
+    text-align: center;
+  }
+
+  .circle {
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle span {
+    font-size: 12px;
+  }
+
+  .banner {
+    height: auto;
+  }
+
+  .stat {
+    font-size: 14px;
+  }
+  .fade-in{
+        width: 350px;
+     }
+}
+
+
+/* =========================
+   SMALL MOBILE (<= 480px)
+========================= */
+@media (max-width: 480px) {
+
+  .sidebar ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .sidebar ul li {
+    font-size: 11px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .circle span {
+    font-size: 10px;
+  }
+}
+</style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i> <h2>Flexity </h2><span>N</span> <h2>Fitness</h2>
+            </div>
+            <ul>
+                <li class="active" onclick="showSection('workout')"><i class="fas fa-calendar-alt"></i> Workout</li>
+                <li onclick="showSection('diet')"><i class="fas fa-utensils"></i> Diet</li>
+                <li onclick="showSection('supplements')"><i class="fas fa-pills"></i> Supplements</li>
+                <li onclick="showSection('trainer')"><i class="fas fa-dumbbell"></i> Trainer</li>
+                <li onclick="showSection('bmi')"><i class="fas fa-calculator"></i> BMI Calculator</li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h2>Dashboard</h2>
+            </header>
+
+            <section class="content-grid">
+                <div class="left-section">
+                    <div class="welcome-banners">
+                        <div class="banner b1">
+                            <h3>Welcome</h3>
+                            <p>"Too fit to quit"</p>
+                        </div>
+                        <div class="banner b2">
+                            <p>"Don't be a brat, burn that fat"</p>
+                        </div>
+                    </div>
+                     
+
+                    <div class="daily-container">
+                    <div class="right-section">
+                    <h3>Daily Activity</h3>
+                    <div class="activity-card">
+                        <div class="stat"><i class="fas fa-fire"></i> Sleep: 8 hr</div>
+                        <div class="stat"><i class="fas fa-shoe-prints"></i> Step: 12000</div>
+                        <div class="stat"><i class="fas fa-utensils"></i> Food: 1800 kcal</div>
+                    </div>
+                    </div>
+
+<div class="daily-right">
+<div class="circle" id="circle">
+  <span>
+     ENERGY <br>
+    OUTPUT
+  </span>
+</div>
+</div>
+</div>
+
+            <div id="content-area" class="fade-in">
+                </div>
+
+            <div id="display-grid" class="display-grid">
+                </div>
+        </main>
+    </div>
+
+    <script src="dash.js"></script>
+</body>
+</html>
