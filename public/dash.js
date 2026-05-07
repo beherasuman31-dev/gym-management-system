@@ -9,7 +9,7 @@ window.onload = function () {
     }
 
     // user data fetch
-    fetch(`http://10.36.114.79:3000/user/${email}`)
+    fetch(`localhost:3000/user/${email}`)
         .then(res => res.json())
         .then(data => {
             console.log("User:", data);
@@ -96,10 +96,6 @@ const data = {
         }
     },
 
-
-
-
-
     supplements: {
         categories: ["Protein","Creatin" , "Mass Gainer"],
         items: {
@@ -113,12 +109,6 @@ const data = {
              "Mass Gainer": [
                 { name: "Mass Gainer", img: "image/mass.jpeg" }
             ],
-
-
-            
-
-
-
 
         }
     }

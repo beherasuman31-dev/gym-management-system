@@ -28,7 +28,7 @@ function registerUser() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-fetch("http://10.36.114.79:3000/register", {
+fetch("http://localhost:3000/membership-register", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
