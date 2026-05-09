@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <style>
+  /* ===== BODY ===== */
+/* ===== RESPONSIVE TABLE ===== */
+
+body{
+    margin:0;
+    padding:15px;
+    background:black;
+    color:white;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    width:100%;
+    overflow-x:auto;
+}
+
+h1{
+    text-align:center;
+    color:gold;
+    margin-bottom:20px;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#111;
+}
+
+th, td{
+    border:1px solid gold;
+    padding:12px;
+    text-align:center;
+}
+
+th{
+    background:gold;
+    color:black;
+}
+
+/* BUTTONS */
+
+button{
+    padding:7px 12px;
+    border:none;
+    cursor:pointer;
+    margin:2px;
+    border-radius:5px;
+}
+
+.edit{
+    background:orange;
+    color:white;
+}
+
+.delete{
+    background:red;
+    color:white;
+}
+
+/* ===== TABLET ===== */
+
+@media(max-width:768px){
+
+    th, td{
+        padding:8px;
+        font-size:13px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    button{
+        padding:6px 10px;
+        font-size:12px;
+    }
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:500px){
+
+    body{
+        padding:8px;
+    }
+
+    table{
+        font-size:12px;
+    }
+
+    th, td{
+        padding:6px;
+    }
+
+    button{
+        padding:5px 8px;
+        font-size:11px;
+    }
+
+    h1{
+        font-size:20px;
+    }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Gym Admin Panel</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Plan</th>
+                <th>Amount</th>
+                <th>Join Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="userTable">
+        </tbody>
+    </table>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

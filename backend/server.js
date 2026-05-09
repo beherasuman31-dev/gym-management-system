@@ -8,7 +8,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // ================= TEST =================
 app.get("/test", (req, res) => {
@@ -35,17 +35,17 @@ db.connect((err) => {
 // ================= REGISTER API =================
 app.post("/register", (req, res) => {
 
-    const { username, email, password } = req.body;
+    const { username, email, password,gender } = req.body;
 
     const sql = `
     INSERT INTO users
-    (username, email, password, plan, amount)
-    VALUES (?, ?, ?, ?, ?)
+    (username, email, password,gender, plan, amount)
+    VALUES (?, ?, ?, ?, ?,?)
     `;
 
     db.query(
         sql,
-        [username, email, password, "Free", 0],
+        [username, email, password, gender, "Free", 0],
         (err, result) => {
 
             if (err) {
@@ -72,19 +72,20 @@ app.post("/membership-register", (req, res) => {
         username,
         email,
         password,
+        gender,
         plan,
         amount
     } = req.body;
 
     const sql = `
     INSERT INTO users
-    (username, email, password, plan, amount)
-    VALUES (?, ?, ?, ?, ?)
+    (username, email, password, gender, plan, amount)
+    VALUES (?, ?, ?, ?, ?,?)
     `;
 
     db.query(
         sql,
-        [username, email, password, plan, amount],
+        [username, email, password,gender, plan, amount],
 
         (err, result) => {
 
@@ -137,6 +138,52 @@ app.post("/login", (req, res) => {
     });
 });
 
+
+
+
+// Get All user API
+app.get("/users", (req, res) => {
+
+    const sql = "SELECT * FROM users";
+
+    db.query(sql, (err, result) => {
+
+        if(err){
+            console.log(err);
+            return res.json([]);
+        }
+
+        res.json(result);
+
+    });
+
+});
+
+
+// Delete USer API
+app.delete("/delete-user/:id", (req, res) => {
+
+    const id = req.params.id;
+
+    db.query(
+        "DELETE FROM users WHERE id=?",
+        [id],
+        (err, result) => {
+
+            if(err){
+                return res.json({
+                    message:"Delete Failed"
+                });
+            }
+
+            res.json({
+                message:"User Deleted"
+            });
+
+        }
+    );
+
+});
 // ================= SERVER =================
 app.listen(3000, () => {
     console.log("Server Running on Port 3000 ✅");

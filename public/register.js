@@ -27,6 +27,7 @@ function registerUser() {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    let gender = document.getElementById("gender").value;
 
 fetch("http://localhost:3000/membership-register", {
   method: "POST",
@@ -37,6 +38,7 @@ fetch("http://localhost:3000/membership-register", {
     username,
     email,
     password,
+    gender,
     plan: selectedPlan,
     amount: selectedAmount
   })

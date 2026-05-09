@@ -88,7 +88,15 @@ button:hover {
             background: orange;
             border: none;
             cursor: pointer;
-        }
+         }
+
+         select{
+    width: 120px;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+    }
 
   </style>  
 </head>
@@ -118,6 +126,14 @@ button:hover {
     <input type="text" id="username" placeholder="Username"><br>
     <input type="email" id="email" placeholder="Email"><br>
     <input type="password" id="password" placeholder="Password"><br>
+      <!-- Gender -->
+                  <select id="gender">
+                 <option value="">Select Gender</option>
+                 <option value="Male">Male</option>
+                 <option value="Female">Female</option>
+                 <option value="Other">Other</option>
+                 </select>
+
     <button onclick="registerUser()">Register</button>
 </div>
 

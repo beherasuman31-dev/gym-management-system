@@ -37,6 +37,18 @@ body {
 }
 
 
+select{
+    width:120px;
+    padding:12px;
+    margin:10px 0;
+    border: none;
+    outline: none;
+    background: #1f1f1f;
+    color: white;
+    border-radius: 5px;
+}
+
+
 
 .left span {
     color: orange;
@@ -91,6 +103,9 @@ button {
     .container {
         flex-direction: column;
     }
+    #gender {
+      width: 130px;
+    }
 }
 </style>
 </head>
@@ -99,7 +114,7 @@ button {
 <div class="container">
 
     <div class="left">
-         <i class="fas fa-dumbbell"></i><h2>Flexity <span>N</span> Fitness</h2>
+         <h2>Flexity <span>N</span> Fitness</h2>
     </div>
 
     <div class="right">
@@ -122,6 +137,14 @@ button {
                     <input type="text" id="username" placeholder="userName">
                     <input type="email" id="email" placeholder="Email">
                     <input type="password" id="password" placeholder="Password">
+                    <!-- Gender -->
+                  <select id="gender">
+                 <option value="">Select Gender</option>
+                 <option value="Male">Male</option>
+                 <option value="Female">Female</option>
+                 <option value="Other">Other</option>
+                 </select>
+
                     <button onclick="Register()">Register</button>
                     <div class="toggle" onclick="showLogin()">Already have account?</div>
                 </div>

@@ -15,8 +15,9 @@ function Register() {
     const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const gender = document.getElementById("gender").value;
 
-    if (username === "" || email === "" || password === "") {
+    if (username === "" || email === "" || password === "" || gender === "") {
         alert("Please fill all fields");
         return;
     }
@@ -31,6 +32,7 @@ function Register() {
             username: username,
             email: email,
             password: password,
+            gender: gender,
             plan: "Free",    
             amount: 0     
         })
@@ -47,6 +49,8 @@ function Register() {
         alert("Server error");
     });
 }
+
+
 
 // Login Function
 function login() {
