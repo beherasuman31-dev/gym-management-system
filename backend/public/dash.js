@@ -160,7 +160,7 @@ window.onload = () => showSection('workout');
 
 // Data object re 'bmi' section add karantu
 const bmiHTML = `
-    <div class="card fade-in" style="width: 153%; margin: 20px auto; padding: 30px; background:black">
+    <div class="card fade-in" style="width: 140%; margin: 20px auto; padding: 30px; background:black">
         <h2 style="text-align:center; margin-bottom:20px; color:white">Check Your BMI</h2>
         <div style="margin-bottom:15px; color:white">
             <label>Weight (kg):</label>
