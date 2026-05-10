@@ -29,7 +29,7 @@ function registerUser() {
     let password = document.getElementById("password").value;
     let gender = document.getElementById("gender").value;
 
-fetch("http://localhost:3000/membership-register", {
+fetch("/membership-register", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
