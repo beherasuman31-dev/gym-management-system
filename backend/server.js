@@ -44,13 +44,13 @@ app.post("/register", (req, res) => {
 
     const sql = `
     INSERT INTO users
-    (username, email, password,gender, plan, amount)
-    VALUES (?, ?, ?, ?, ?,?)
+    (username, email, password,gender, plan, amount, join_date)
+    VALUES (?, ?, ?, ?, ?,?,?)
     `;
 
     db.query(
         sql,
-        [username, email, password, gender, "Free", 0],
+        [username, email, password, gender, "Free", 0, new Date()],
         (err, result) => {
 
             if (err) {
@@ -84,13 +84,13 @@ app.post("/membership-register", (req, res) => {
 
     const sql = `
     INSERT INTO users
-    (username, email, password, gender, plan, amount)
-    VALUES (?, ?, ?, ?, ?,?)
+    (username, email, password, gender, plan, amount, join_date)
+    VALUES (?, ?, ?, ?, ?,?,?)
     `;
 
     db.query(
         sql,
-        [username, email, password,gender, plan, amount],
+        [username, email, password,gender, plan, amount,new Date()],
 
         (err, result) => {
 
