@@ -1,7 +1,7 @@
 // Load Users
 function loadUsers() {
 
-    fetch("http://localhost:3000/users")
+    fetch("/users")
     .then(res => res.json())
     .then(data => {
 
@@ -38,7 +38,7 @@ function loadUsers() {
 // Delete User
 function deleteUser(id){
 
-    fetch(`http://localhost:3000/delete-user/${id}`,{
+    fetch(`/delete-user/${id}`,{
         method:"DELETE"
     })
     .then(res => res.json())
