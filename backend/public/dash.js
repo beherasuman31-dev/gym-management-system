@@ -9,7 +9,7 @@ window.onload = function () {
     }
 
     // user data fetch
-    fetch(`localhost:3000/user/${email}`)
+    fetch(`/user/${email}`)
         .then(res => res.json())
         .then(data => {
             console.log("User:", data);
@@ -84,14 +84,17 @@ const data = {
         categories: ["Male", "Female"],
         items: {
             "Male": [
-                { name: "Suman Sourav Behera", img: "image/IMG_20260416_124939.png" },
-                { name: "Somanath Nayak", img: "image/trainer.jpeg" },
-                { name: "Dhirapani Behera", img: "image/trainer2.jpeg" }
+                { name: "Suman Sourav Behera", img: "image/IMG_20260416_124939.png",experience: "5 Years Experience", specialization: "Fat Loss & Zumba" },
+                { name: "Somanath Nayak", img: "image/trainer.jpeg",experience: "4 Years Experience", specialization: "Yoga and Cardio" },
+                { name: "Indrajit Behera", img: "image/trainer2.jpeg",experience: "3 Years Experience", specialization: "Weight Training" }
             ],
             "Female": [
-                { name: "Swapna Mishra", img: "image/female.jpeg" },
-                { name: "Sanjana Tripathi", img: "image/female1.jpeg" },
-                { name: "Jyotshna Senapati", img: "image/fe.jpeg" }
+                { name: "Swapna Mishra", img: "image/female.jpeg", experience: "3 Years Experience",
+                specialization: "Yoga & Cardio" },
+                { name: "Sanjana Tripathi", img: "image/female1.jpeg", experience: "2 Years Experience",
+                specialization: "Fat Loss" },
+                { name: "Jyotshna Senapati", img: "image/fe.jpeg", experience: "3 Years Experience",
+                specialization: "Boxing & Zumba" }
             ]
         }
     },
@@ -100,7 +103,7 @@ const data = {
         categories: ["Protein","Creatin" , "Mass Gainer"],
         items: {
             "Protein": [
-                { name: "Whey Protein", img: "image/Whey.jpeg" }
+                { name: "Whey Protein", img: "image/whey.jpeg" }
             ],
             "Creatin": [
                 { name: "Creatin", img: "image/creatin.jpeg" }
@@ -146,7 +149,8 @@ function showCards(section, category) {
             <img src="${item.img}" alt="${item.name}">
             <div class="card-info">
                 <h3>${item.name}</h3>
-                <p>Top choice for your goals</p>
+                ${item.experience ? `<p>${item.experience}</p>` : ""}
+                ${item.specialization ? `<p>${item.specialization}</p>` : ""}
             </div>
         `;
         displayGrid.appendChild(card);
@@ -158,7 +162,7 @@ window.onload = () => showSection('workout');
 
 
 
-// Data object re 'bmi' section add karantu
+// Data object re 'bmi' 
 const bmiHTML = `
     <div class="card fade-in" style="width: 100%;max-width:500px; margin: 20px auto; padding: 30px; background:black" box-sizing:border-box>
         <h2 style="text-align:center; margin-bottom:20px; color:white">Check Your BMI</h2>
@@ -176,7 +180,7 @@ const bmiHTML = `
     </div>
 `;
 
-// showSection function re BMI handle karantu
+// showSection function re BMI handle 
 function showSection(section) {
     const contentArea = document.getElementById('content-area');
     const displayGrid = document.getElementById('display-grid');
